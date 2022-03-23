@@ -2,7 +2,6 @@ package br.com.blsoft.multitenantdb.multitentantdb.clientes_sistema;
 
 import java.util.List;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,9 +37,7 @@ public class ClientesistemaController {
     @PostMapping
     public ResponseEntity<ClienteSistema> saveClienteSistema(@RequestBody ClienteSistema pClienteSistema) {
         ClienteSistema clienteSistema = clienteSistemaService.insert(pClienteSistema);
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("clienteSistema", "/api/cliente-sistema/" + clienteSistema.getId().toString());
-        return new ResponseEntity<>(clienteSistema, httpHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(clienteSistema, HttpStatus.CREATED);
     }
 
     @PutMapping({"/{clienteSistemaId}"})
