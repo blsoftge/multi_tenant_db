@@ -2,7 +2,7 @@ package br.com.blsoft.multitenantdb.multitentantdb.config;
 
 public class TenantContext {
 
-    final public static String DEFAULT_TENANT = "CLIENTE_1";
+    final public static String DEFAULT_TENANT = "GERAL";
 
     private static final ThreadLocal<String> currentTenant = ThreadLocal.withInitial(() -> DEFAULT_TENANT);
 
